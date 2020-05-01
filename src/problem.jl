@@ -19,7 +19,7 @@ struct MonitoringMDP{P} <: MDP{State{P},Action{P}}
     states::DiscreteBeliefSpace{P}
 end
 
-function MonitoringMDP(models, τmax, costs, discount)
+function MonitoringMDP(models, τmax, costs, discount = 0.99)
     @argcheck length(models) == length(τmax) == length(costs)
     @argcheck 0 <= discount < 1
     actions = BooleanActionSpace(length(models))
