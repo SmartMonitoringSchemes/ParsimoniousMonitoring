@@ -20,5 +20,6 @@ export MonitoringMDP, ConstantPolicy, always_measure_policy, never_measure_polic
 include("spaces.jl")
 include("problem.jl")
 include("policies.jl")
+include("receding_horizon.jl")
 
 end
