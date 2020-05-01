@@ -2,7 +2,7 @@
 flatproduct(args...) = reshape(collect(Iterators.product(args...)), :)
 splatmap(f, args...) = map(x -> f(x...), args...);
 
-Action{P} = NTuple{P,Int}
+Action{P} = NTuple{P,Bool}
 State{P} = NTuple{P,DiscreteBelief}
 
 struct MonitoringMDP{P} <: MDP{State{P},Action{P}}
@@ -54,8 +54,8 @@ end
 # TODO: Optimize
 function transition(
     mdp::MonitoringMDP{P},
-    s::NTuple{P,DiscreteBelief},
-    a::NTuple{P,Bool},
+    s::State{P},
+    a::Action{P},
 ) where {P}
     probas = Vector{Float64}[]
     states = Vector{DiscreteBelief}[]
@@ -72,7 +72,6 @@ function transition(
     SparseCat(states, probas)
 end
 
-
 ## Reward Model
 # TODO: Alternative reward for mdp with two paths (L - L(t))
 
@@ -80,8 +79,8 @@ end
 function reward(
     mdp::MonitoringMDP,
     _,
-    a::NTuple{P,Bool},
-    sp::NTuple{P,DiscreteBelief},
+    a::Action{P},
+    sp::State{P},
 ) where {P}
     cost = dot(mdp.costs, a)
 

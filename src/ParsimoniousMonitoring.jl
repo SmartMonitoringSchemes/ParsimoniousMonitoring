@@ -13,11 +13,12 @@ using Random
 # Extended functions
 import Base: Tuple, eltype, iterate, length, rand
 import POMDPs:
-    actionindex, actions, dimensions, discount, reward, stateindex, states, transition
+    action, actionindex, actions, dimensions, discount, reward, stateindex, states, transition
 
-export MonitoringMDP
+export MonitoringMDP, ConstantPolicy, always_measure_policy, never_measure_policy
 
 include("spaces.jl")
 include("problem.jl")
+include("policies.jl")
 
 end
