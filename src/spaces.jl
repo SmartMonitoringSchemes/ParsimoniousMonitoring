@@ -1,6 +1,3 @@
-using ArgCheck
-using Base: IdentityUnitRange
-using IterTools: @ifsomething
 
 # https://juliapomdp.github.io/POMDPs.jl/stable/interfaces/#space-interface-1
 
@@ -20,7 +17,7 @@ struct DiscreteBelief
     end
 end
 
-Base.Tuple(b::DiscreteBelief) = (b.timesteps, b.laststate)
+Tuple(b::DiscreteBelief) = (b.timesteps, b.laststate)
 
 struct DiscreteBeliefSpace{P,I}
     τmax::Vector{Int}
@@ -52,14 +49,14 @@ function index(s::DiscreteBeliefSpace{P}, beliefs::NTuple{P,DiscreteBelief}) whe
     LinearIndices(s.indices)[CartesianIndex(tpl)]
 end
 
-function Base.iterate(s::DiscreteBeliefSpace{P}, args...) where {P}
+function iterate(s::DiscreteBeliefSpace{P}, args...) where {P}
     element, state = @ifsomething iterate(s.indices, args...)
     beliefs(element, P), state
 end
 
-Base.eltype(s::DiscreteBeliefSpace{P}) where {P} = NTuple{P,DiscreteBelief}
-Base.length(s::DiscreteBeliefSpace) = length(s.indices)
-Base.rand(rng::AbstractRNG, s::DiscreteBeliefSpace{P}) where {P} =
+eltype(s::DiscreteBeliefSpace{P}) where {P} = NTuple{P,DiscreteBelief}
+length(s::DiscreteBeliefSpace) = length(s.indices)
+rand(rng::AbstractRNG, s::DiscreteBeliefSpace{P}) where {P} =
     beliefs(rand(rng, s.indices), P)
 
 ## Action Space
@@ -81,16 +78,16 @@ function index(s::BooleanActionSpace{P}, action::NTuple{P,Bool}) where {P}
     LinearIndices(s.indices)[CartesianIndex(action)]
 end
 
-function Base.iterate(s::BooleanActionSpace{P}, args...) where {P}
+function iterate(s::BooleanActionSpace{P}, args...) where {P}
     element, state = @ifsomething iterate(s.indices, args...)
     # NOTE: @code_warntype iterate(s)
     # => Type inference fails for large tuples
     Bool.(Tuple(element)), state
 end
 
-Base.eltype(s::BooleanActionSpace{P}) where {P} = NTuple{P,Bool}
-Base.length(s::BooleanActionSpace) = length(s.indices)
-Base.rand(rng::AbstractRNG, s::BooleanActionSpace{P}) where {P} =
+eltype(s::BooleanActionSpace{P}) where {P} = NTuple{P,Bool}
+length(s::BooleanActionSpace) = length(s.indices)
+rand(rng::AbstractRNG, s::BooleanActionSpace{P}) where {P} =
     Bool.(Tuple(rand(rng, s.indices)))
 
 # TODO: Test for memory allocations
