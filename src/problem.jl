@@ -1,6 +1,4 @@
 
-flatproduct(args...) = reshape(collect(Iterators.product(args...)), :)
-splatmap(f, args...) = map(x -> f(x...), args...);
 
 Action{P} = NTuple{P,Bool}
 State{P} = NTuple{P,DiscreteBelief}
@@ -52,11 +50,7 @@ end
 
 # Possible transitions from state s and action a
 # TODO: Optimize
-function transition(
-    mdp::MonitoringMDP{P},
-    s::State{P},
-    a::Action{P},
-) where {P}
+function transition(mdp::MonitoringMDP{P}, s::State{P}, a::Action{P}) where {P}
     probas = Vector{Float64}[]
     states = Vector{DiscreteBelief}[]
 
@@ -76,12 +70,7 @@ end
 # TODO: Alternative reward for mdp with two paths (L - L(t))
 
 # TODO: Optimize
-function reward(
-    mdp::MonitoringMDP,
-    _,
-    a::Action{P},
-    sp::State{P},
-) where {P}
+function reward(mdp::MonitoringMDP, _, a::Action{P}, sp::State{P}) where {P}
     cost = dot(mdp.costs, a)
 
     delay = minimum(zip(mdp.models, sp)) do (model, belief)

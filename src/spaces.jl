@@ -1,10 +1,4 @@
-
 # https://juliapomdp.github.io/POMDPs.jl/stable/interfaces/#space-interface-1
-
-# https://discourse.julialang.org/t/efficient-tuple-concatenation/5398/9
-@inline tuplejoin(x) = x
-@inline tuplejoin(x, y) = (x..., y...)
-@inline tuplejoin(x, y, z...) = (x..., tuplejoin(y, z...)...);
 
 ## Belief Space
 

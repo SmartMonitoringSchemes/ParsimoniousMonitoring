@@ -2,7 +2,7 @@ module ParsimoniousMonitoring
 
 using ArgCheck
 using Base: IdentityUnitRange
-# using DiscreteValueIteration
+using DiscreteValueIteration
 using HMMBase
 using IterTools: @ifsomething
 using LinearAlgebra
@@ -13,10 +13,19 @@ using Random
 # Extended functions
 import Base: Tuple, eltype, iterate, length, rand
 import POMDPs:
-    action, actionindex, actions, dimensions, discount, reward, stateindex, states, transition
+    action,
+    actionindex,
+    actions,
+    dimensions,
+    discount,
+    reward,
+    stateindex,
+    states,
+    transition
 
-export MonitoringMDP, ConstantPolicy, always_measure_policy, never_measure_policy
+export MonitoringMDP, ConstantPolicy, always_measure_policy, never_measure_policy, solve_sparse
 
+include("utilities.jl")
 include("spaces.jl")
 include("problem.jl")
 include("policies.jl")
