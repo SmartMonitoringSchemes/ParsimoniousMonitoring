@@ -13,6 +13,7 @@ jobs:
           version: '1.3'
       - name: "Setup JuliaPOMDP registry"
         run: |
+          julia -e 'using Pkg; pkg"registry add General"'
           julia -e 'using Pkg; pkg"registry add https://github.com/JuliaPOMDP/Registry"'
       - name: "Run Julia tests"
         run: |
