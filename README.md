@@ -1,7 +1,7 @@
 # Parsimonious Monitoring in Routing Overlays
 
 [![CI](https://github.com/maxmouchet/ParsimoniousMonitoring/workflows/CI/badge.svg)](https://github.com/maxmouchet/ParsimoniousMonitoring/actions?query=workflow%3ACI)
-TODO: Coverage
+[![codecov](https://codecov.io/gh/maxmouchet/ParsimoniousMonitoring/branch/master/graph/badge.svg?token=A383yme5Ey)](https://codecov.io/gh/maxmouchet/ParsimoniousMonitoring)
 
 This is an implementation of the following papers:
 
