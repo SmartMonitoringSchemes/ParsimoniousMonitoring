@@ -1,5 +1,8 @@
 # Parsimonious Monitoring in Routing Overlays
 
+[![CI](https://github.com/maxmouchet/ParsimoniousMonitoring/workflows/CI/badge.svg)](https://github.com/maxmouchet/ParsimoniousMonitoring/actions?query=workflow%3ACI)
+TODO: Coverage
+
 This is an implementation of the following papers:
 
 - Sandrine Vaton, Olivier Brun, Maxime Mouchet, Pablo Belzarena, Isabel Amigo, et al.. Joint Minimization of Monitoring Cost and Delay in Overlay Networks: Optimal Policies with a Markovian Approach. _Journal of Network and Systems Management_, Springer Verlag, 2019, 27 (1), pp.188-232. [⟨hal-01857738⟩](https://hal.archives-ouvertes.fr/hal-01857738)

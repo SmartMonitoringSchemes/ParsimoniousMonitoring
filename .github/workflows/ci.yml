@@ -11,6 +11,9 @@ jobs:
       - uses: julia-actions/setup-julia@latest
         with:
           version: '1.0'
+      - name: "setup Julia registry"
+        run: |
+          julia -e 'using Pkg; pkg"registry add https://github.com/JuliaPOMDP/Registry"'
       - name: "Run Julia tests"
         run: |
           julia --project=@. --check-bounds=yes -e "using Pkg; Pkg.test(\"ParsimoniousMonitoring\", coverage=true);"
