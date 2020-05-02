@@ -1,0 +1,21 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+   
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: '1.0'
+      - name: "Run Julia tests"
+        run: |
+          julia --project=@. --check-bounds=yes -e "using Pkg; Pkg.test(\"ParsimoniousMonitoring\", coverage=true);"
+      - name: "Upload coverage"
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          julia --project=@. -e "using Pkg; Pkg.add(\"Coverage\"); using Coverage; Codecov.submit(Codecov.process_folder())"
