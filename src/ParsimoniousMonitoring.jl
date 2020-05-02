@@ -40,6 +40,7 @@ export MonitoringMDP,
     benchmark
 
 include("utilities.jl")
+include("belief.jl")
 include("spaces.jl")
 include("problem.jl")
 include("policies.jl")
