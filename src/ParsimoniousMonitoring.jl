@@ -37,6 +37,7 @@ export MonitoringMDP,
     solve_sparse,
     expectation,
     predict,
+    update,
     benchmark
 
 include("utilities.jl")

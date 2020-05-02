@@ -1,2 +1,4 @@
 [deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+HMMBase = "b2b3ca75-8444-5ffa-85e6-af70e2b64fe7"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

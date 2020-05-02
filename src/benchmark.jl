@@ -5,7 +5,7 @@ function benchmark(
     policy::Policy,
     data::Matrix{Float64},
     state = first(states(mdp));
-    show_progress = false
+    show_progress = false,
 )
     @argcheck length(mdp.models) == size(data, 2)
     T, P = size(data)
@@ -38,7 +38,10 @@ function benchmark(
         path = argmin(delays)
 
         show_progress && next!(prog)
-        push!(logbook, LogEntry(s, a, sp, r, t, data[t,path], minimum(data[t,:]), path, policy_time))
+        push!(
+            logbook,
+            LogEntry(s, a, sp, r, t, data[t, path], minimum(data[t, :]), path, policy_time),
+        )
     end
 
     logbook
