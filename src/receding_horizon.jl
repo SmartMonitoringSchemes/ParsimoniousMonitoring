@@ -1,9 +1,9 @@
-struct OnlineRecedingHorizonPolicy{S,A} <: Policy
+struct RecedingHorizonPolicy{S,A} <: Policy
     mdp::MDP{S,A}
     horizon::Int
 end
 
-function action(policy::OnlineRecedingHorizonPolicy, state)
+function action(policy::RecedingHorizonPolicy, state)
     value, action = receding_horizon(policy.mdp, state, policy.horizon)
     action
 end
@@ -28,7 +28,7 @@ function receding_horizon(mdp::MDP{S,A}, state::S, horizon::Int) where {S,A}
             v, _ = receding_horizon(mdp, statep, horizon - 1)
             util += proba * (r + discount_factor * v)
         end
-        
+
         best = max(best, (util, action))
     end
 

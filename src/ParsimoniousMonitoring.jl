@@ -3,11 +3,13 @@ module ParsimoniousMonitoring
 using ArgCheck
 using Base: IdentityUnitRange
 using DiscreteValueIteration
+using Distributions
 using HMMBase
 using IterTools: @ifsomething
 using LinearAlgebra
 using POMDPs
 using POMDPModelTools
+using ProgressMeter
 using Random
 
 # Extended functions
@@ -21,14 +23,27 @@ import POMDPs:
     reward,
     stateindex,
     states,
-    transition
+    transition,
+    update
 
-export MonitoringMDP, ConstantPolicy, always_measure_policy, never_measure_policy, solve_sparse
+export MonitoringMDP,
+    ContinuousBelief,
+    DiscreteBelief,
+    ConstantPolicy,
+    GreedyPolicy,
+    RecedingHorizonPolicy,
+    always_measure_policy,
+    never_measure_policy,
+    solve_sparse,
+    expectation,
+    predict,
+    benchmark
 
 include("utilities.jl")
 include("spaces.jl")
 include("problem.jl")
 include("policies.jl")
 include("receding_horizon.jl")
+include("benchmark.jl")
 
 end
