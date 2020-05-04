@@ -40,7 +40,8 @@ export MonitoringMDP,
     predict,
     update,
     benchmark,
-    benchmark_mc
+    benchmark_mc,
+    Constant
 
 include("utilities.jl")
 include("belief.jl")

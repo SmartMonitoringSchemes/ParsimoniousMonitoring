@@ -2,6 +2,7 @@
 ArgCheck = "dce04be8-c92d-5529-be00-80e4d2c0e197"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 DiscreteValueIteration = "4b033969-44f6-5439-a48b-c11fa3648068"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 POMDPModelTools = "08074719-1b2a-587c-a292-00f91cc44415"
 POMDPSimulators = "e0d0a172-29c6-5d4e-96d0-f262df5d01fd"
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
