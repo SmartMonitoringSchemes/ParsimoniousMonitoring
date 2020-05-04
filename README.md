@@ -13,3 +13,4 @@ This is an implementation of the following papers:
 Name | Description
 :----|:-----------
 [JONS Paper](/notebooks/JONS_Paper.ipynb) | Reproduction of sections 8.1 and 8.2 of JONS paper.
+[NOMS Paper](/notebooks/NOMS_Paper.ipynb) | Reproduction of NOMS paper.
