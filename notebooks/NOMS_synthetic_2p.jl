@@ -23,11 +23,11 @@ function evaluate_policies(βs, τmax)
         smdp = SparseTabularMDP(mdp)
         optimal_policy = solve_sparse(solver, mdp, smdp)
     
-        results[β]["value_iteration"] = evaluate(mdp, optimal_policy).(states(mdp))
-        results[β]["greedy"] = evaluate(mdp, GreedyPolicy(mdp)).(states(mdp))
-        results[β]["receding_h2"] = evaluate(mdp, RecedingHorizonPolicy(mdp, 2)).(states(mdp))
-        results[β]["receding_h3"] = evaluate(mdp, RecedingHorizonPolicy(mdp, 3)).(states(mdp))
-        results[β]["receding_h4"] = evaluate(mdp, RecedingHorizonPolicy(mdp, 4)).(states(mdp))
+        @time results[β]["value_iteration"] = evaluate(mdp, optimal_policy).(states(mdp))
+        @time results[β]["greedy"] = evaluate(mdp, GreedyPolicy(mdp)).(states(mdp))
+        @time results[β]["receding_h2"] = evaluate(mdp, RecedingHorizonPolicy(mdp, 2)).(states(mdp))
+        @time results[β]["receding_h3"] = evaluate(mdp, RecedingHorizonPolicy(mdp, 3)).(states(mdp))
+        # results[β]["receding_h4"] = evaluate(mdp, RecedingHorizonPolicy(mdp, 4)).(states(mdp))
     end
 
     results
@@ -36,8 +36,8 @@ end
 function main(βs, τmax)
     @show βs, τmax
     results = evaluate_policies(βs, τmax)
-    filename = joinpath(@__DIR__, "NOMS_synthetic.json")
+    filename = joinpath(@__DIR__, "NOMS_synthetic_2p.json")
     write(filename, JSON.json(results))
 end
 
-main([0.1], 10)
+main(vcat(0.01:0.01:0.05, 0.1:0.1:0.9, 0.95:0.01:0.99), 100)
