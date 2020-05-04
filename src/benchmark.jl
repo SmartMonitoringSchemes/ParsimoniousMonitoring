@@ -46,3 +46,34 @@ function benchmark(
 
     logbook
 end
+
+
+function benchmark_mc(mdp::MonitoringMDP, policies::Dict{String,Policy}, N::Int, T::Int; summary_fn = nothing)
+    P = length(mdp.models)
+    
+    logbooks = Dict(name => [] for name in keys(policies))
+    
+    # TODO: Multithreaded version
+    @showprogress for n = 1:N
+        data = zeros(T,P)
+        for (i, model) in enumerate(mdp.models)
+            data[:,i] = rand(model, T)
+        end
+        for (name, policy) in policies
+            push!(logbooks[name], benchmark(mdp, policy, data))
+        end
+    end
+    
+    # TODO: Cleanup/simplify
+    if !isnothing(summary_fn)
+        frames = []
+        for (name, logbooks_) in logbooks
+            d::Dict{String,Any} = summary_fn(logbooks_)
+            d["policy"] = name
+            push!(frames, DataFrame(d))
+        end
+        return vcat(frames...)
+    end
+    
+    logbooks
+end
