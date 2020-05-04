@@ -5,6 +5,7 @@ version = "0.1.0"
 
 [deps]
 ArgCheck = "dce04be8-c92d-5529-be00-80e4d2c0e197"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 DiscreteValueIteration = "4b033969-44f6-5439-a48b-c11fa3648068"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 HMMBase = "b2b3ca75-8444-5ffa-85e6-af70e2b64fe7"
@@ -18,6 +19,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [compat]
 ArgCheck = "2.0"
+DataFrames = "0.20"
 DiscreteValueIteration = "0.4"
 Distributions = "0.23"
 HMMBase = "1.0"

@@ -2,6 +2,7 @@ module ParsimoniousMonitoring
 
 using ArgCheck
 using Base: IdentityUnitRange
+using DataFrames
 using DiscreteValueIteration
 using Distributions
 using HMMBase
@@ -38,7 +39,8 @@ export MonitoringMDP,
     expectation,
     predict,
     update,
-    benchmark
+    benchmark,
+    benchmark_mc
 
 include("utilities.jl")
 include("belief.jl")
