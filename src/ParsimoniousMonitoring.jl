@@ -14,7 +14,7 @@ using ProgressMeter
 using Random
 
 # Extended functions
-import Base: Tuple, eltype, iterate, length, rand
+import Base: Tuple, eltype, getindex, iterate, length, rand
 import POMDPs:
     action,
     actionindex,
