@@ -54,3 +54,5 @@ function update(b::ContinuousBelief, m::HMM, x)
     belief = pdf.(m.B, x) .* (transpose(m.A) * b.belief)
     ContinuousBelief(belief / sum(belief))
 end
+
+getindex(b::ContinuousBelief, args...) = getindex(b.belief, args...)
