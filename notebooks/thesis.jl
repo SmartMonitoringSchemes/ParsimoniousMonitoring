@@ -4,11 +4,10 @@ using PyPlot
 function save_thesis(filename, figure = gcf(); clean = true, hwr = nothing)
     tikzplotlib = pyimport("tikzplotlib")
     clean && tikzplotlib.clean_figure(fig)
-    path = joinpath(@__DIR__, "..", "plots", "$(filename).tex")
+    path = joinpath(@__DIR__, "..", "plots", "$(filename).tikz")
     kwargs = Dict(
         :figure => figure,
-        :textsize => 11,
-        :show_info => true
+        :textsize => 11
     )
     if !isnothing(hwr)
         # TODO: Use \axis_width instead?
