@@ -11,7 +11,11 @@ function save_thesis(filename, figure = gcf(); clean = true, hwr = nothing)
     tikzplotlib = pyimport("tikzplotlib")
     clean && tikzplotlib.clean_figure(fig)
     path = joinpath(@__DIR__, "..", "plots", "$(filename).tikz")
-    kwargs = Dict(:figure => figure, :textsize => 11)
+    kwargs = Dict(
+        :figure => figure,
+        :textsize => 11,
+        :extra_axis_parameters => ["legend style={nodes={scale=0.8}}"],
+    )
     if !isnothing(hwr)
         # TODO: Use \axis_width instead?
         kwargs[:axis_height] = "$(hwr)\\linewidth"

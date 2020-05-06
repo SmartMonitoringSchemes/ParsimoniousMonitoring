@@ -12,6 +12,7 @@ height=0.45\linewidth,
 legend cell align={left},
 legend columns=3,
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black},
+legend style={nodes={scale=0.8}},
 scaled x ticks=manual:{}{\pgfmathparse{#1}},
 tick align=outside,
 tick pos=left,
@@ -182,8 +183,8 @@ table {%
 \nextgroupplot[
 height=0.45\linewidth,
 legend cell align={left},
-legend columns=2,
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black},
+legend style={nodes={scale=0.8}},
 scaled x ticks=manual:{}{\pgfmathparse{#1}},
 tick align=outside,
 tick pos=left,
@@ -1805,19 +1806,19 @@ table {%
 0 0.216666698455811
 3000 0.216666698455811
 };
-\addlegendentry{xmin}
-\addplot [black, dashed]
+\addlegendentry{xmin, xmax}
+\addplot [black, dashed, forget plot]
 table {%
 0 0.674999952316284
 3000 0.674999952316284
 };
-\addlegendentry{xmax}
 
 \nextgroupplot[
 height=0.45\linewidth,
 legend cell align={left},
 legend columns=2,
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black},
+legend style={nodes={scale=0.8}},
 tick align=outside,
 tick pos=left,
 width=\linewidth,
