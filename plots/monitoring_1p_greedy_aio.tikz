@@ -1,10 +1,10 @@
 % This file was created by tikzplotlib v0.9.1.
 \begin{tikzpicture}
 
-\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
-\definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
-\definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
-\definecolor{color3}{rgb}{0.83921568627451,0.152941176470588,0.156862745098039}
+\definecolor{color0}{rgb}{0.917647058823529,0.231372549019608,0.450980392156863}
+\definecolor{color1}{rgb}{0,0.0980392156862745,0.458823529411765}
+\definecolor{color2}{rgb}{0.525490196078431,0.8,0.301960784313725}
+\definecolor{color3}{rgb}{0.615686274509804,0.670588235294118,0.0666666666666667}
 
 \begin{groupplot}[group style={group size=1 by 3}]
 \nextgroupplot[
@@ -25,7 +25,7 @@ ylabel={\(\displaystyle L(t)\)},
 ymin=4, ymax=12,
 ytick style={color=black}
 ]
-\addplot [only marks, mark=o, draw=red, colormap/viridis]
+\addplot [only marks, mark=o, draw=color0, colormap/viridis]
 table{%
 x                      y
 122 10
@@ -92,13 +92,13 @@ x                      y
 2986 5
 };
 \addlegendentry{Mesure}
-\addplot [semithick, color0]
+\addplot [semithick, color1]
 table {%
 0 8
 2999 8
 };
 \addlegendentry{Déterministe}
-\addplot [semithick, color1]
+\addplot [semithick, color2]
 table {%
 0 10
 18 10
@@ -197,7 +197,7 @@ ylabel={\(\displaystyle \gamma_{t-1,t}(1)\)},
 ymin=0, ymax=1,
 ytick style={color=black}
 ]
-\addplot [semithick, color0, forget plot]
+\addplot [semithick, color1, forget plot]
 table {%
 0 0.990000009536743
 1 0.980299949645996
@@ -1829,10 +1829,10 @@ xtick style={color=black},
 y grid style={white!69.0196078431373!black},
 ylabel={Gain pénalisé cumulé},
 ymajorgrids,
-ymin=-483, ymax=4396.2,
+ymin=-1000, ymax=5000,
 ytick style={color=black}
 ]
-\addplot [semithick, color0]
+\addplot [semithick, color1]
 table {%
 0 -2
 18 -38
@@ -1875,7 +1875,7 @@ table {%
 2999 2195
 };
 \addlegendentry{Jamais}
-\addplot [semithick, color1]
+\addplot [semithick, color2]
 table {%
 0 -0.649999976158142
 18 -12.3500003814697
@@ -1918,7 +1918,7 @@ table {%
 2999 2967
 };
 \addlegendentry{Toujours}
-\addplot [semithick, color2]
+\addplot [semithick, color0]
 table {%
 0 -2
 18 -38

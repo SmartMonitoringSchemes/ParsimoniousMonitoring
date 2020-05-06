@@ -64,20 +64,20 @@ function action_predictor(policy::AnalyticalGreedyPolicy, p::NTuple{2,Continuous
     exp2 = expectation(p[2], m2)
 
     # (false, false)
-    R00 = - (exp2 <= exp1) * exp2 - (exp2 > exp1) * exp1
+    R00 = -(exp2 <= exp1) * exp2 - (exp2 > exp1) * exp1
 
     # (false, true)
-    R01 = - sum(j -> (l2[j] <= exp1) * l2[j] * p[2][j], 1:length(l2))
+    R01 = -sum(j -> (l2[j] <= exp1) * l2[j] * p[2][j], 1:length(l2))
     R01 -= exp1 * sum(j -> (l2[j] > exp1) * p[2][j], 1:length(l2))
     R01 -= c2
 
     # (true, false)
-    R10 = - sum(i -> (l1[i] < exp2) * l1[i] * p[1][i], 1:length(l1))
+    R10 = -sum(i -> (l1[i] < exp2) * l1[i] * p[1][i], 1:length(l1))
     R10 -= exp2 * sum(i -> (l1[i] >= exp2) * p[1][i], 1:length(l1))
     R10 -= c1
 
     # (true, true)
-    R11 = - sum(1:length(l1)) do i
+    R11 = -sum(1:length(l1)) do i
         sum(1:length(l2)) do j
             p[1][i] * p[2][j] * min(l1[i], l2[j])
         end
