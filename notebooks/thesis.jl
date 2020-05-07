@@ -13,9 +13,13 @@ function save_thesis(filename, figure = gcf(); clean = true, hwr = nothing)
     path = joinpath(@__DIR__, "..", "plots", "$(filename).tikz")
     kwargs = Dict(
         :figure => figure,
-        :textsize => 11,
-        :extra_axis_parameters => ["legend style={nodes={scale=0.8}}"],
+        :textsize => 11
     )
+    kwargs[:extra_axis_parameters] = [
+        raw"legend style={nodes={scale=0.8}}",
+        raw"label style={font=\small}",
+        raw"tick label style={font=\small}"
+    ]
     if !isnothing(hwr)
         # TODO: Use \axis_width instead?
         kwargs[:axis_height] = "$(hwr)\\linewidth"

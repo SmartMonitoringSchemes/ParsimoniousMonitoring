@@ -8,13 +8,15 @@
 
 \begin{groupplot}[group style={group size=1 by 3}]
 \nextgroupplot[
-height=0.45\linewidth,
+height=0.4\linewidth,
+label style={font=\small},
 legend cell align={left},
 legend columns=3,
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black},
 legend style={nodes={scale=0.8}},
 scaled x ticks=manual:{}{\pgfmathparse{#1}},
 tick align=outside,
+tick label style={font=\small},
 tick pos=left,
 width=\linewidth,
 x grid style={white!69.0196078431373!black},
@@ -196,12 +198,14 @@ table {%
 \addlegendentry{Stochastique}
 
 \nextgroupplot[
-height=0.45\linewidth,
+height=0.4\linewidth,
+label style={font=\small},
 legend cell align={left},
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black},
 legend style={nodes={scale=0.8}},
 scaled x ticks=manual:{}{\pgfmathparse{#1}},
 tick align=outside,
+tick label style={font=\small},
 tick pos=left,
 width=\linewidth,
 x grid style={white!69.0196078431373!black},
@@ -1750,12 +1754,14 @@ table {%
 };
 
 \nextgroupplot[
-height=0.45\linewidth,
+height=0.4\linewidth,
+label style={font=\small},
 legend cell align={left},
 legend columns=2,
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black},
 legend style={nodes={scale=0.8}},
 tick align=outside,
+tick label style={font=\small},
 tick pos=left,
 width=\linewidth,
 x grid style={white!69.0196078431373!black},
