@@ -957,7 +957,7 @@ nan nan
 1006 315.819122314453
 1007 315.638732910156
 };
-\addlegendentry{HK → KZ}
+\addlegendentry{HK $\rightarrow$ KZ}
 \addplot [semithick, color1]
 table {%
 0 356.758636474609
@@ -1945,13 +1945,13 @@ nan nan
 1006 425.115264892578
 1007 431.502075195312
 };
-\addlegendentry{HK → LV → KZ}
+\addlegendentry{HK $\rightarrow$ LV $\rightarrow$ KZ}
 
 \nextgroupplot[
 height=0.4\linewidth,
 label style={font=\small},
 legend cell align={left},
-legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.97,0.03)}, anchor=south east, draw=white!80!black},
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.03)}, anchor=south west, draw=white!80!black},
 legend style={nodes={scale=0.8}},
 scaled x ticks=manual:{}{\pgfmathparse{#1}},
 tick align=outside,
@@ -2080,7 +2080,7 @@ x                      y
 989 1.2
 1001 1.2
 };
-\addlegendentry{Mesures HK → KZ}
+\addlegendentry{Mesures HK $\rightarrow$ KZ}
 \addplot [only marks, mark=*, draw=color1, fill=color1, colormap/viridis]
 table{%
 x                      y
@@ -2205,7 +2205,7 @@ x                      y
 620 1.1
 626 1.1
 };
-\addlegendentry{Mesures HK → LV → KZ}
+\addlegendentry{Mesures HK $\rightarrow$ LV $\rightarrow$ KZ}
 \addplot [semithick, color0, forget plot]
 table {%
 0 0.390381336212158
