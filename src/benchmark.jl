@@ -3,7 +3,7 @@ LogEntry = NamedTuple{(:s, :a, :sp, :r, :t, :delay, :delay_opt, :path, :time)}
 function benchmark(
     mdp::MonitoringMDP,
     policy::Policy,
-    data::Matrix{Float64},
+    data::Matrix{>:Float64},
     state = first(states(mdp));
     show_progress = false,
 )
