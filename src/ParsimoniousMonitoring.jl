@@ -6,6 +6,7 @@ using DataFrames
 using DiscreteValueIteration
 using Distributions
 using HMMBase
+using InteractiveUtils: @which
 using IterTools: @ifsomething
 using LinearAlgebra
 using POMDPs
@@ -53,5 +54,6 @@ include("problem.jl")
 include("policies.jl")
 include("receding_horizon.jl")
 include("benchmark.jl")
+include("missings.jl")
 
 end
