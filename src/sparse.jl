@@ -20,7 +20,7 @@ function SparseTabularMDP(mdp::MonitoringMDP; show_progress = false)
 
     for (aidx, a) in enumerate(action_space)
         I, J, V = Int[], Int[], Float64[]
-        show_progress && (p = Progress(ns))
+        show_progress && (p = Progress(ns, desc = "$a"))
         for (sidx, s) in enumerate(state_space)
             r = 0.0
             dist = transition(mdp, s, a)
@@ -38,4 +38,12 @@ function SparseTabularMDP(mdp::MonitoringMDP; show_progress = false)
     end
 
     SparseTabularMDP(T, R, Set(), mdp.discount)
+end
+
+# Given an MDP and its sparse tabular equivalent,
+# solve the sparse MDP, and return the VI policy for the MDP.
+function solve_sparse(solver, mdp, smdp, discount = discount(mdp))
+    smdp = SparseTabularMDP(smdp, discount = discount)
+    policy = solve(solver, smdp)
+    ValueIterationPolicy(mdp, policy.qmat)
 end
