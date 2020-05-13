@@ -13,6 +13,7 @@ using POMDPs
 using POMDPModelTools
 using ProgressMeter
 using Random
+using SparseArrays
 
 # Extended functions
 import Base: Tuple, eltype, getindex, iterate, length, rand
@@ -27,6 +28,8 @@ import POMDPs:
     states,
     transition,
     update
+
+import POMDPModelTools: SparseTabularMDP
 
 export MonitoringMDP,
     ContinuousBelief,
@@ -45,7 +48,8 @@ export MonitoringMDP,
     action_predictor,
     benchmark,
     benchmark_mc,
-    Constant
+    Constant,
+    SparseTabularMDP
 
 include("utilities.jl")
 include("belief.jl")
@@ -55,5 +59,6 @@ include("policies.jl")
 include("receding_horizon.jl")
 include("benchmark.jl")
 include("missings.jl")
+include("sparse.jl")
 
 end

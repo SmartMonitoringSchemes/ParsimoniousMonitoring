@@ -2,6 +2,7 @@ using Test
 using Distributions
 using HMMBase
 using ParsimoniousMonitoring
+using POMDPModelTools
 
 import ParsimoniousMonitoring: BooleanActionSpace, DiscreteBeliefSpace, index
 
@@ -53,4 +54,18 @@ end
 
     @test predict(ContinuousBelief([1.0, 0.0]), hmm).belief == [0.9, 0.1]
     @test update(ContinuousBelief([0.5, 0.5]), hmm, 10.0).belief == [0.0, 1.0]
+end
+
+@testset "SparseTabularMDP" begin
+    mdp = MonitoringMDP([hmm, hmm], [20, 20], [4, 4], 0.5)
+    # Original implementation (from POMDPModelTools.jl)
+    R = POMDPModelTools.reward_s_a(mdp)
+    T = POMDPModelTools.transition_matrix_a_s_sp(mdp)
+    terminal_states = POMDPModelTools.terminal_states_set(mdp)
+    # Custom implementation
+    smdp = SparseTabularMDP(mdp, show_progress = true)
+    @test smdp.R == R
+    @test smdp.T == T
+    @test smdp.discount == mdp.discount
+    @test smdp.terminal_states == terminal_states
 end
