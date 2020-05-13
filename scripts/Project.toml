@@ -1,0 +1,12 @@
+[deps]
+ConjugatePriors = "1624bea9-42b1-5fc1-afd3-e96f729c8d6c"
+DiscreteValueIteration = "4b033969-44f6-5439-a48b-c11fa3648068"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+Glob = "c27321d9-0574-5035-807b-f59d2c89b15c"
+HDPHMM = "d69f1d75-0f53-4bd4-8114-76337d5140b8"
+HMMBase = "b2b3ca75-8444-5ffa-85e6-af70e2b64fe7"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+POMDPModelTools = "08074719-1b2a-587c-a292-00f91cc44415"
+POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
+ParsimoniousMonitoring = "9aa3e4a5-e084-4c6a-9aeb-c6df264de966"
+ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
