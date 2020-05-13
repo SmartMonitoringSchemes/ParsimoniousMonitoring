@@ -11,7 +11,7 @@ function SparseTabularMDP(mdp::MonitoringMDP; show_progress = false)
     # - `T::Vector{SparseMatrixCSC{Float64, Int64}}`
     #    The transition model is represented as a vector of sparse matrices (one for each action).
     #   `T[a][s, sp]` the probability of transition from `s` to `sp` taking action `a`.
-    T = Vector{SparseMatrixCSC{Float64, Int64}}(undef, na)
+    T = Vector{SparseMatrixCSC{Float64,Int64}}(undef, na)
 
     # - `R::Array{Float64, 2}`
     #    The reward is represented as a matrix where the rows are states and the columns actions:
@@ -26,7 +26,9 @@ function SparseTabularMDP(mdp::MonitoringMDP; show_progress = false)
             r = 0.0
             for (sp, p) in weighted_iterator(dist)
                 spidx = stateindex(mdp, sp)
-                push!(I, sidx); push!(J, spidx); push!(V, p)
+                push!(I, sidx)
+                push!(J, spidx)
+                push!(V, p)
                 r += p * reward(mdp, s, a, sp)
             end
             R[sidx, aidx] = r

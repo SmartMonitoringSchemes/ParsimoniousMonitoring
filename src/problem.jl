@@ -1,5 +1,3 @@
-
-
 Action{P} = NTuple{P,Bool}
 State{P} = NTuple{P,DiscreteBelief}
 

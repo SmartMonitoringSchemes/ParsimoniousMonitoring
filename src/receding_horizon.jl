@@ -8,12 +8,17 @@ function action(policy::RecedingHorizonPolicy, state)
     action
 end
 
-Cache{S,A} = Dict{Tuple{S, Int}, Tuple{Float64, A}}
+Cache{S,A} = Dict{Tuple{S,Int},Tuple{Float64,A}}
 
 # From https://hal.laas.fr/hal-02413636/document -- Algorithm 1
 # TODO: Cleanup type annotations, find why type inference fails
 # TODO: Non-recursive version (DFS)
-function receding_horizon(mdp::MDP{S,A}, state::S, horizon::Int, cache = Cache{S,A}()) where {S,A}
+function receding_horizon(
+    mdp::MDP{S,A},
+    state::S,
+    horizon::Int,
+    cache = Cache{S,A}(),
+) where {S,A}
     @argcheck horizon >= 0
 
     if horizon == 0
