@@ -19,7 +19,7 @@ Name | Description
 
 Name | Implementation | Description
 :----|:---------------|:-----------
-ConstantPolicy         | [policies.jl](/src/policies.jl) | `always_measure_policy(P)`, `never_meeasure_policy(P)`.
+ConstantPolicy         | [policies.jl](/src/policies.jl) | `always_measure_policy(P)`, `never_measure_policy(P)`.
 GreedyPolicy           | [policies.jl](/src/policies.jl) | Generic greedy policy.
 AnalyticalGreedyPolicy | [policies.jl](/src/policies.jl) | Analytical greedy policy for 2 stochastic paths (JONS paper).
 ValueIterationPolicy   | [DiscreteValueIteration.jl](https://github.com/JuliaPOMDP/DiscreteValueIteration.jl) | Standard VI. Implementation from POMDPs.jl.
