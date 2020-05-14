@@ -42,6 +42,12 @@ end
 
 # Given an MDP and its sparse tabular equivalent,
 # solve the sparse MDP, and return the VI policy for the MDP.
+# This is done natively by `solve(SparseValueIterationSolver(), mdp)`,
+# but if we precompute the SparseTabularMDP such as
+#    smdp = SparseTabularMDP(mdp)
+#    solve(SparseValueIterationSolver(), smdp)
+# then we get a VI policy with the wrong state/action types.
+# Hence the following method.
 function solve_sparse(solver, mdp, smdp, discount = discount(mdp))
     smdp = SparseTabularMDP(smdp, discount = discount)
     policy = solve(solver, smdp)
