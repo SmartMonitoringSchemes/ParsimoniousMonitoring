@@ -14,3 +14,14 @@ Name | Description
 [JONS Basic](/notebooks/JONS_Basic.ipynb) | Reproduction of sections 8.1 and 8.2 of JONS paper.
 [JONS Pair](/notebooks/JONS_Pair.ipynb)   | Reproduction of section 8.3 of JONS paper.
 [NOMS Paper](/notebooks/NOMS_Paper.ipynb) | Reproduction of NOMS paper.
+
+## Policies
+
+Name | Implementation | Description
+:----|:---------------|:-----------
+ConstantPolicy         | [policies.jl](/src/policies.jl) | `always_measure_policy(P)`, `never_emeasure_policy(P)`.
+GreedyPolicy           | [policies.jl](/src/policies.jl) | Generic greedy policy.
+AnalyticalGreedyPolicy | [policies.jl](/src/policies.jl) | Analytical greedy policy for 2 stochastic paths (JONS paper).
+ValueIterationPolicy   | [DiscreteValueIteration.jl](https://github.com/JuliaPOMDP/DiscreteValueIteration.jl) | Standard VI. Implementation from POMDPs.jl.
+RecedingHorizonPolicy  | [receding_horizon.jl](/src/receding_horizon.jl) | Heuristic 1 from NOMS paper.
+HeuristicPolicy        | [heuristic.jl](/src/heuristic.jl) | Heuristic 2 from NOMS paper.
