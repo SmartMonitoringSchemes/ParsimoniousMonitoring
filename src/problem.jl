@@ -67,14 +67,15 @@ end
 ## Reward Model
 # TODO: Alternative reward for mdp with two paths (L - L(t))
 
+# Delay in state s' after acting and applying the  "minimum expected delay" routing decision.
 # TODO: Optimize
-function reward(mdp::MonitoringMDP, _, a::Action{P}, sp::State{P}) where {P}
-    cost = dot(mdp.costs, a)
-
-    delay = minimum(zip(mdp.models, sp)) do (model, belief)
+function delay(mdp::MonitoringMDP{P}, sp::State{P}) where {P}
+    minimum(zip(mdp.models, sp)) do (model, belief)
         probas::Vector{Float64} = (model.A^belief.timesteps)[belief.laststate, :]
         sum(i -> mean(model.B[i])::Float64 * probas[i], 1:length(probas))
     end
+end
 
-    return -cost - delay
+function reward(mdp::MonitoringMDP{P}, _, a::Action{P}, sp::State{P}) where {P}
+    - dot(mdp.costs, a) - delay(mdp, sp)
 end

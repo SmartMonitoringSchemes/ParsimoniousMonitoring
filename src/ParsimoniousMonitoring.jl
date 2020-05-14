@@ -38,6 +38,7 @@ export MonitoringMDP,
     GreedyPolicy,
     AnalyticalGreedyPolicy,
     RecedingHorizonPolicy,
+    HeuristicPolicy,
     always_measure_policy,
     never_measure_policy,
     solve_sparse,
@@ -56,6 +57,7 @@ include("belief.jl")
 include("spaces.jl")
 include("problem.jl")
 include("policies.jl")
+include("heuristic.jl")
 include("receding_horizon.jl")
 include("benchmark.jl")
 include("missings.jl")
