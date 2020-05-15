@@ -1,14 +1,27 @@
+# Cache to speed-up policy evaluation (needs to go over all states).
+Cache{S,A} = Dict{Tuple{S,Int},Tuple{Float64,A}}
+
 struct RecedingHorizonPolicy{S,A} <: Policy
     mdp::MDP{S,A}
     horizon::Int
+    cache::Union{Cache{S,A}, Nothing}
+end
+
+# NOTE: shared_cache is not thread-safe!
+function RecedingHorizonPolicy(mdp::MDP{S,A}, horizon::Int; shared_cache = false) where {S,A}
+    cache = shared_cache ? Cache{S,A}() : nothing
+    RecedingHorizonPolicy(mdp, horizon, cache)
 end
 
 function action(policy::RecedingHorizonPolicy, state)
-    value, action = receding_horizon(policy.mdp, state, policy.horizon)
+    value, action = if !isnothing(policy.cache)
+        receding_horizon(policy.mdp, state, policy.horizon, policy.cache)
+    else
+        receding_horizon(policy.mdp, state, policy.horizon)
+    end
     action
 end
 
-Cache{S,A} = Dict{Tuple{S,Int},Tuple{Float64,A}}
 
 # From https://hal.laas.fr/hal-02413636/document -- Algorithm 1
 # TODO: Cleanup type annotations, find why type inference fails
