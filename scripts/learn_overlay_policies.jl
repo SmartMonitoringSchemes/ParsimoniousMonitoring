@@ -44,7 +44,8 @@ function process(file, τmax, c, ρ)
     mdp = MonitoringMDP(models, [τmax, τmax], [c, c], ρ)
     smdp = SparseTabularMDP(mdp, show_progress = false)
 
-    solver = SparseValueIterationSolver(max_iterations=5000, belres=1e-6, verbose=false)
+    solver =
+        SparseValueIterationSolver(max_iterations = 5000, belres = 1e-6, verbose = false)
     policy = solve_sparse(solver, mdp, smdp)
 
     res = Dict("action_map" => policy.action_map, "policy" => policy.policy)

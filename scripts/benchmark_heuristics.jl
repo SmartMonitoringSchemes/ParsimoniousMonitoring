@@ -21,7 +21,7 @@ function read_model(filename)
         end
         MixtureModel(components, [d["weights"]...])
     end
-    HMM(A,B)
+    HMM(A, B)
 end
 
 function load_scenario(path)
@@ -54,7 +54,7 @@ function main(args)
     policies = Dict(
         "Greedy" => GreedyPolicy(mdp),
         "Heuristic" => HeuristicPolicy(mdp, SparseValueIterationSolver()),
-        "RH-3" => RecedingHorizonPolicy(mdp, 3, shared_cache = true)
+        "RH-3" => RecedingHorizonPolicy(mdp, 3, shared_cache = true),
     )
 
     logbooks = Dict()
