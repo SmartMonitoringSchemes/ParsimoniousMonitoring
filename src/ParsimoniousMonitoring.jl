@@ -16,7 +16,7 @@ using Random
 using SparseArrays
 
 # Extended functions
-import Base: Tuple, eltype, getindex, iterate, length, rand
+import Base: Tuple, eltype, getindex, iterate, length, rand, show
 import POMDPs:
     action,
     actionindex,

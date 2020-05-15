@@ -24,6 +24,14 @@ function MonitoringMDP(models, τmax, costs, discount = 0.99)
     MonitoringMDP{length(models)}(models, τmax, costs, discount, actions, states)
 end
 
+function show(io::IO, mdp::MonitoringMDP{P}) where P
+    print(io, "MonitoringMDP with $(P) paths")
+    print(io, ", $(length(actions(mdp))) actions and $(length(states(mdp))) states (ρ = $(mdp.discount))\n")
+    for (i, (model, τmax, cost)) in enumerate(zip(mdp.models, mdp.τmax, mdp.costs))
+        println(io, "Path $(i): $(typeof(model)) with $(size(model, 1)) states (c = $(cost), τmax = $(τmax))")
+    end
+end
+
 actions(mdp::MonitoringMDP) = mdp.actions
 states(mdp::MonitoringMDP) = mdp.states
 discount(mdp::MonitoringMDP) = mdp.discount
