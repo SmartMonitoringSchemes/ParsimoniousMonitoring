@@ -4,6 +4,7 @@ Pkg.activate(@__DIR__)
 using CSV
 using Distributions
 using Glob
+using HDPHMM
 using HMMBase
 using JSON
 using DiscreteValueIteration
@@ -38,6 +39,8 @@ end
 
 
 function main(args)
+    HDPHMM.enablemissing(1.0)
+
     scenario, models, data = load_scenario(args[1])
     @show scenario
 
