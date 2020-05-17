@@ -89,3 +89,18 @@ function action_predictor(policy::AnalyticalGreedyPolicy, p::NTuple{2,Continuous
 
     actions[argmax(rewards)]
 end
+
+# A policy wrapper that caches actions.
+# Not thread-safe!
+struct CachedPolicy{T,S,A} <: Policy
+    policy::T
+    cache::Dict{S,A}
+end
+
+CachedPolicy(mdp::MDP{S,A}, policy) where {S,A} = CachedPolicy(policy, Dict{S,A}())
+
+function action(policy::CachedPolicy, x)
+    get!(policy.cache, x) do
+        action(policy.policy, x)
+    end
+end
