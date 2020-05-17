@@ -55,19 +55,18 @@ function transition(τmax::Int, model::HMM, b::DiscreteBelief, a::Bool)
 end
 
 # Possible transitions from state s and action a
-# TODO: Optimize
 function transition(mdp::MonitoringMDP{P}, s::State{P}, a::Action{P}) where {P}
-    probas = Vector{Float64}[]
-    states = Vector{DiscreteBelief}[]
+    all_probas = Vector{Float64}[]
+    all_states = Vector{DiscreteBelief}[]
 
     for (τmax, model, belief, action) in zip(mdp.τmax, mdp.models, s, a)
-        probas_, states_ = transition(τmax, model, belief, action)
-        push!(probas, probas_)
-        push!(states, states_)
+        probas_::Vector{Float64}, states_::Vector{DiscreteBelief} = transition(τmax, model, belief, action)
+        push!(all_probas, probas_)
+        push!(all_states, states_)
     end
 
-    probas = splatmap(*, flatproduct(probas...))
-    states = flatproduct(states...)
+    probas::Vector{Float64} = splatmap(*, flatproduct(all_probas...))
+    states::Vector{State{P}} = flatproduct(all_states...)
 
     SparseCat(states, probas)
 end
@@ -76,7 +75,6 @@ end
 # TODO: Alternative reward for mdp with two paths (L - L(t))
 
 # Delay in state s' after acting and applying the  "minimum expected delay" routing decision.
-# TODO: Optimize
 function delay(mdp::MonitoringMDP{P}, sp::State{P}) where {P}
     minimum(zip(mdp.models, sp)) do (model, belief)
         probas::Vector{Float64} = (model.A^belief.timesteps)[belief.laststate, :]
