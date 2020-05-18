@@ -1,6 +1,6 @@
 # Parsimonious Monitoring in Routing Overlays
 
-[![CI](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/workflows/CI/badge.svg)](https://github.com/maxmouchet/ParsimoniousMonitoring/actions?query=workflow%3ACI)
+[![CI](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/workflows/CI/badge.svg)](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/actions?query=workflow%3ACI)
 
 This is an implementation of the following papers:
 
