@@ -51,7 +51,9 @@ export MonitoringMDP,
     benchmark,
     benchmark_mc,
     Constant,
-    SparseTabularMDP
+    SparseTabularMDP,
+    ShortestPathPolicy,
+    ConstantPathPolicy
 
 include("utilities.jl")
 include("belief.jl")
@@ -60,6 +62,7 @@ include("problem.jl")
 include("policies.jl")
 include("heuristic.jl")
 include("receding_horizon.jl")
+include("routing.jl")
 include("benchmark.jl")
 include("missings.jl")
 include("sparse.jl")

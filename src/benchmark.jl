@@ -1,10 +1,11 @@
-LogEntry = NamedTuple{(:s, :a, :sp, :r, :t, :delay, :delay_opt, :path, :time)}
+const LogEntry = NamedTuple{(:s, :a, :sp, :r, :t, :delay, :delay_opt, :path, :time)}
 
 function benchmark(
     mdp::MonitoringMDP,
     policy::Policy,
     data::Matrix{>:Float64},
     state = first(states(mdp));
+    routing_policy = ShortestPathPolicy(),
     show_progress = false,
 )
     @argcheck length(mdp.models) == size(data, 2)
@@ -35,7 +36,7 @@ function benchmark(
 
         # NOTE: The decision is taken on the discrete belief, not on the continuous belief.
         delays = map(x -> expectation(x...), zip(mdp_state, mdp.models))
-        path = argmin(delays)
+        path = action(routing_policy, delays)
 
         show_progress && next!(prog)
         push!(

@@ -31,3 +31,10 @@ AnalyticalGreedyPolicy | [policies.jl](/src/policies.jl) | Analytical greedy pol
 ValueIterationPolicy   | [DiscreteValueIteration.jl](https://github.com/JuliaPOMDP/DiscreteValueIteration.jl) | Standard VI. Implementation from POMDPs.jl.
 RecedingHorizonPolicy  | [receding_horizon.jl](/src/receding_horizon.jl) | Heuristic 1 from NOMS paper.
 HeuristicPolicy        | [heuristic.jl](/src/heuristic.jl) | Heuristic 2 from NOMS paper.
+
+## Routing
+
+Name | Implementation | Description
+:----|:---------------|:-----------
+ShortestPathPolicy | [routing.jl](/src/routing.jl) | Choose the path of minimal delay.
+ConstantPathPolicy | [routing.jl](/rc/routing.jl) | Always choose the same path.
