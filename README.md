@@ -1,6 +1,7 @@
 # Parsimonious Monitoring in Routing Overlays
 
 [![CI](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/workflows/CI/badge.svg)](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/actions?query=workflow%3ACI)
+[![CompatHelper](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/workflows/CompatHelper/badge.svg)](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/actions?query=workflow%3ACompatHelper)
 
 This is an implementation of the following papers:
 
