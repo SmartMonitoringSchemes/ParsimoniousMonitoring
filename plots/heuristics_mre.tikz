@@ -51,7 +51,7 @@ table {%
 0.980000019073486 56.7234001159668
 0.990000009536743 58.2204742431641
 };
-\addlegendentry{Glouton}
+\addlegendentry{Myope}
 \addplot [semithick, color1]
 table {%
 0.00999999046325684 6.5530309677124
