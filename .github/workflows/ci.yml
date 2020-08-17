@@ -20,3 +20,10 @@ jobs:
       - name: "Run Julia tests"
         run: |
           julia --project=. --check-bounds=yes -e 'using Pkg; Pkg.test(coverage=true);'
+      - name: "Upload coverage"
+        # Don't fail if the Codecov API times out.
+        continue-on-error: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          julia -e "using Pkg; Pkg.add(\"Coverage\"); using Coverage; Codecov.submit(Codecov.process_folder())"
