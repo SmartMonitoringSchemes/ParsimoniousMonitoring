@@ -20,7 +20,8 @@ Name | Description
 :----|:-----------
 [JONS Basic](/notebooks/JONS_Basic.ipynb) | Reproduction of sections 8.1 and 8.2 of JONS paper.
 [JONS Pair](/notebooks/JONS_Pair.ipynb)   | Reproduction of section 8.3 of JONS paper.
-[NOMS Paper](/notebooks/NOMS_Paper.ipynb) | Reproduction of NOMS paper.
+[NOMS Paper Synthetic](/notebooks/NOMS_Paper_Synthetic.ipynb) | Reproduction of section 5.1 of NOMS paper.
+[NOMS Paper NANOG](/notebooks/NOMS_Paper_NANOG.ipynb) | Reproduction of section 5.2 of NOMS paper.
 
 ## Policies
 
