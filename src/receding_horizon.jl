@@ -1,5 +1,5 @@
 # Cache to speed-up policy evaluation (needs to go over all states).
-Cache{S,A} = Dict{Tuple{S,Int},Tuple{Float64,A}}
+const Cache{S,A} = Dict{Tuple{S,Int},Tuple{Float64,A}}
 
 struct RecedingHorizonPolicy{S,A} <: Policy
     mdp::MDP{S,A}

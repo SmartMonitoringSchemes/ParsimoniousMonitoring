@@ -1,6 +1,6 @@
 # https://hal.laas.fr/hal-02413636/document -- Heuristic 2
 
-HeuristicCache = Dict{Tuple{Int,Float64}, ValueIterationPolicy}
+const HeuristicCache = Dict{Tuple{Int,Float64}, ValueIterationPolicy}
 
 struct HeuristicPolicy{P} <: Policy
     mdp::MonitoringMDP{P}
