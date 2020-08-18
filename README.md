@@ -39,4 +39,4 @@ HeuristicPolicy        | [heuristic.jl](/src/heuristic.jl) | Heuristic 2 from NO
 Name | Implementation | Description
 :----|:---------------|:-----------
 ShortestPathPolicy | [routing.jl](/src/routing.jl) | Choose the path of minimal delay.
-ConstantPathPolicy | [routing.jl](/rc/routing.jl) | Always choose the same path.
+ConstantPathPolicy | [routing.jl](/src/routing.jl) | Always choose the same path.
