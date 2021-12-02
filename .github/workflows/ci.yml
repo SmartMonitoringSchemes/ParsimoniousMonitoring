@@ -9,7 +9,7 @@ jobs:
       - uses: julia-actions/setup-julia@latest
         with:
           version: '1.4'
-      - uses: webfactory/ssh-agent@v0.5.3
+      - uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: "Setup Julia registries"
