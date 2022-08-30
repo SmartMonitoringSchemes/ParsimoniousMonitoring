@@ -1,8 +1,7 @@
 # Parsimonious Monitoring in Routing Overlays
 
-[![CI](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/workflows/CI/badge.svg)](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/actions?query=workflow%3ACI)
-[![CompatHelper](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/workflows/CompatHelper/badge.svg)](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/actions?query=workflow%3ACompatHelper)
-[![codecov](https://codecov.io/gh/SmartMonitoringSchemes/ParsimoniousMonitoring/branch/master/graph/badge.svg?token=A383yme5Ey)](https://codecov.io/gh/SmartMonitoringSchemes/ParsimoniousMonitoring)
+[![Coverage](https://img.shields.io/codecov/c/github/SmartMonitoringSchemes/ParsimoniousMonitoring?logo=codecov&logoColor=white)](https://app.codecov.io/gh/SmartMonitoringSchemes/ParsimoniousMonitoring)
+[![Tests](https://img.shields.io/github/workflow/status/SmartMonitoringSchemes/ParsimoniousMonitoring/Tests?logo=github&label=tests)](https://github.com/SmartMonitoringSchemes/ParsimoniousMonitoring/actions/workflows/tests.yml)
 
 This is an implementation of the following papers:
 

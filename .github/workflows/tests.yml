@@ -1,0 +1,17 @@
+name: Tests
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: julia-actions/setup-julia@v1
+      - name: Setup registries
+        run: |
+          julia -e 'using Pkg; pkg"registry add General"'
+          julia -e 'using Pkg; pkg"registry add https://github.com/JuliaPOMDP/Registry"'
+          julia -e 'using Pkg; pkg"registry add https://github.com/SmartMonitoringSchemes/Registry"'
+      - name: Run tests
+        run: julia --project=. --check-bounds=yes -e 'using Pkg; Pkg.test(coverage=true);'
+      - name: Upload coverage
+        run: julia -e "using Pkg; Pkg.add(\"Coverage\"); using Coverage; Codecov.submit(Codecov.process_folder())"

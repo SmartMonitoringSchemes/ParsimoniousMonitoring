@@ -6,20 +6,6 @@ using POMDPModelTools
 
 import ParsimoniousMonitoring: BooleanActionSpace, DiscreteBeliefSpace, index
 
-function allocs(f)
-    f(nothing)
-    _, _, _, _, memallocs = @timed f(nothing)
-    memallocs.malloc + memallocs.realloc + memallocs.poolalloc + memallocs.bigalloc
-end
-
-@testset "Allocations" for s in
-                           [BooleanActionSpace(4), DiscreteBeliefSpace([10, 10], [5, 5])]
-    allocs1 = allocs(_ -> collect(s))
-    allocs2 = allocs(_ -> collect(s.indices))
-    @show allocs1, allocs2
-    @test allocs1 <= allocs2 <= 10
-end
-
 @testset "Spaces" for s in [BooleanActionSpace(4), DiscreteBeliefSpace([10, 10], [5, 5])]
     @test typeof(rand(s)) == eltype(s)
     @test length(collect(s)) == length(s)
